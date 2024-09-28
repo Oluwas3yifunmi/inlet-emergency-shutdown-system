@@ -21,8 +21,21 @@ else:
             print('please enter valid data')
             continue
         #Startup steps
-        #pressurisation startup step
-        if startup_step == 'pressurisation':
-            #checking equipment status
+        #pressurisation startup stepqsdv
+        while startup_step == 'pressurisation':
+            #checking startup critical equipment status
+            #emergency and inlet ball valve status
             inlet_vbl= 'closed'
-            inlet_uzv= input('what is the status of the inlet emergency shutdown valve(open/closed): \n')
+            inlet_uzv= 'closed'
+            #pressure variables
+            pic_cv= 0
+            inlet_pcv_a= int(input('what percent is PCV-A open to: '))
+            inlet_pcv_b= int(input('what percent is PCV-B open to: '))
+            #pressurisation process
+            while inlet_vbl != 'open':
+                #giving open command to uzv
+                print('give open command to inlet uzv to begin pressurisation\n')
+                inlet_uzv = 'open'
+                print('open command given to inlet uzv\nopen command received\ninlet uzv is now open.\n')
+                print('set pic controller to pressurisation range')
+                break
